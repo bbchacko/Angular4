@@ -27,6 +27,13 @@ name = "welcome";
       age: 18
     }
   ];
+  newEmployee= {};
+
+  addEmployee(){
+    console.log(this.newEmployee);
+    this.employees.push(this.newEmployee);
+  }
+
   selectEmployee(employee){
     this.selectedEmployee = employee;
 

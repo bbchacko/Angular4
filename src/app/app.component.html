@@ -1,13 +1,15 @@
 <app-header></app-header>
-
+<div>
 <h2> Add employee</h2>
   <div>
-    Name: <input type = "text" #name>
+    Name: <input type = "text" [(ngModel)]="newEmployee.name">
   </div>
   <div>
-    Age: <input type = "number" #age (keyup.enter)="addEmployee(name.value)">
+    Age: <input type = "number" [(ngModel)]="newEmployee.age" (keyup.enter)="addEmployee()">
+    
   </div>
-
+ <!-- <button (click)=addEmployee()>Add</button>-->
+</div>
 <table>
   <thead>
     <tr>
