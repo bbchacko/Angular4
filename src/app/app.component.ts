@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Employee} from './models/employee';
+import { viewClassName } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-root',
@@ -6,42 +9,48 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-name = "welcome";
-  Delaware(){
-    this.name="Newark";
-  }
+  title = 'Angular5 Bencys trials';
+  activeView='list';
   selectedEmployee;
-   
-  employees: Array<object>=[
-    {
-      name: 'Bency',
-      age: 21
-    },
-    {
-      name: 'Ancy',
-      age: 22
-    },
-    {
-      name: 'Jancy',
-      age: 18
-    }
+  newEmployee: Employee= new Employee('', null);   
+  employees: Array<Employee>= [  
+    new Employee('Benny', 50),
+    new Employee('Baiju', 48),
+    new Employee('Thomas', 44),
+    new Employee('Vincent', 40)
   ];
-  newEmployee= {};
+  clearSelections(){
+    this.employees.forEach(emp => emp.selected = false);
+  }
 
-  addEmployee(){
-    console.log(this.newEmployee);
+  onSelectEmployee(employee: Employee) {
+    this.clearSelections();
+    employee.selected = true;
+    this.selectedEmployee = employee;
+  }
+
+  addEmployee(employee){
     this.employees.push(this.newEmployee);
   }
 
-  selectEmployee(employee){
+
+ deleteEmployee(){
+     this.employees.splice(this.selectedEmployee);
+  }
+
+ selectEmployee(employee){
     this.selectedEmployee = employee;
+ 
+  }
+ 
+  selectView(viewName){
+    this.activeView = viewName;
+  }
 
   }
 
 
  
 
-}
 
 

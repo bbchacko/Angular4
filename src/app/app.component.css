@@ -1,0 +1,9 @@
+tr.selected{
+    background-color: pink;
+}
+
+.active{
+    background-color: purple;
+    color: red;
+    font-weight: bold;
+}

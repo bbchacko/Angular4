@@ -1,30 +1,44 @@
 <app-header></app-header>
-<div>
+
+This is the main section
+<h2>{{title}}</h2>
+
+<button [ngClass]="{'active': activeView === 'list'}" (cilck)="selectView('list')">View List</button>
+<button [ngClass]="{'active': activeView === 'addEmployee'}" (cilck)="selectView('addEmployee')">Add Employee</button>
+
+  
+<div *ngIf="activeView === 'addEmployee' ">
 <h2> Add employee</h2>
+{{newEmployee | json }}
   <div>
-    Name: <input type = "text" [(ngModel)]="newEmployee.name">
+    Name: <input type="text" [(ngModel)]="newEmployee.name">
   </div>
   <div>
-    Age: <input type = "number" [(ngModel)]="newEmployee.age" (keyup.enter)="addEmployee()">
-    
+    Age: <input type="number" [(ngModel)]="newEmployee.age">
+    </div>
+  <button (click)="addEmployee()">Add</button>
   </div>
- <!-- <button (click)=addEmployee()>Add</button>-->
-</div>
-<table>
+  
+
+<div *ngIf="activeView === 'list'">
+
+<table> 
   <thead>
     <tr>
       <th>Name</th>
       <th>Age</th>
       <th>View</th>
+      <th>Delete</th>
     </tr>
 
   </thead>
 
     <tbody>
-      <tr *ngFor="let e of employees ">
-        <td>{{e.name}} </td>
-        <td>{{e.age}}</td>
-        <td> <button (click)="selectEmployee(e)">view Details</button></td>
+      <tr *ngFor="let emp of employees "[ngClass]="{ 'selected' : emp.selected }">
+        <td>{{emp.name}} </td>
+        <td>{{emp.age}}</td>
+        <td> <button (click)="onSelectEmployee(emp)">view Details</button></td>
+       <td> <button (click)="deleteEmployee(emp)">Delete</button></td>
  
        
       </tr>
@@ -35,4 +49,5 @@
   <h2> Selected Employee</h2>
   <p>Name:{{selectedEmployee.name}}</p>
   <p>Age:{{selectedEmployee.age}}</p>
+</div>
 </div>
