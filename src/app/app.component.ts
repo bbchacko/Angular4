@@ -34,8 +34,8 @@ export class AppComponent {
   }
 
 
- deleteEmployee(){
-     this.employees.splice(this.selectedEmployee);
+ deleteEmployee(empIndex){
+     this.employees.splice(empIndex,1);
   }
 
  selectEmployee(employee){
