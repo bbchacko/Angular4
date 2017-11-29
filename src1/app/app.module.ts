@@ -5,7 +5,6 @@ import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
-import { Assignment1127Component } from './component/assignment1127/assignment1127.component';
 
 
 
@@ -14,7 +13,6 @@ import { Assignment1127Component } from './component/assignment1127/assignment11
   declarations: [
     AppComponent,
     HeaderComponent,
-    Assignment1127Component,
     
   ],
   imports: [

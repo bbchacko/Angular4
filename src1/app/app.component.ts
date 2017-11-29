@@ -12,11 +12,7 @@ export class AppComponent {
   title = 'Angular5 Bencys trials';
   activeView='list';
   selectedEmployee;
-  newEmployee: Employee= new Employee('', null); 
-
-  menuList: Array<string> = ['Home', 'About', 'Contact'];  
-  sectionList: Array<string> = ['Name', 'Address', 'phone number'];
-
+  newEmployee: Employee= new Employee('', null);   
   employees: Array<Employee>= [  
     new Employee('Benny', 50),
     new Employee('Baiju', 48),

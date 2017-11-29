@@ -5,9 +5,3 @@ tr.selected{
 .active{
     background-color: purple;
 }
-
-div{
-    border: 1px dotted green;
-    margin: 15px;
-    background-color: goldenrod;
-}
