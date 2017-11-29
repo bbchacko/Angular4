@@ -1,7 +1,6 @@
+<app-header [list]="menuList" (onMenuClick)="onMenuClick($event)"></app-header>
 
-<app-header [list]="menuList"></app-header>
-
-<app-header [list]="sectionList"></app-header>
+<app-header [list]="sectionList" (onMenuClick)="onSectionClick($event)"></app-header>
 
 
 This is the main section

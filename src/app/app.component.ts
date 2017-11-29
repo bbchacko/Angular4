@@ -23,6 +23,15 @@ export class AppComponent {
     new Employee('Thomas', 44),
     new Employee('Vincent', 40)
   ];
+
+  onMenuClick(item){
+    alert('menu is clicked is ' + item);
+  }
+
+  onSectionClick(item){
+    alert('section is clicked is ' + item);
+  }
+
   clearSelections(){
     this.employees.forEach(emp => emp.selected = false);
   }
@@ -51,8 +60,10 @@ export class AppComponent {
     this.activeView = viewName;
   }
 
-  }
+ 
 
+  }
+  
 
  
 
