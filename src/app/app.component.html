@@ -1,16 +1,19 @@
-<app-header [list]="menuList" (onMenuClick)="onMenuClick($event)"></app-header>
 
-<app-header [list]="sectionList" (onMenuClick)="onSectionClick($event)"></app-header>
+<app-header [list]="menuList" (onMenuClick)="onMenuClick($event)" 
+[buttonList]="buttonList" (onButtonClick)="selectView($event)" ></app-header>
+<!--<app-header [list]="sectionList" (onMenuClick)="onSectionClick($event)"></app-header>-->
 
 
 This is the main section
-<h2>{{title}}</h2>
+<h2>{{title | uppercase }}</h2>
 
-<button [ngClass]="{'active': activeView === 'list'}" (click)="selectView('list')">View List</button>
-<button [ngClass]="{'active': activeView === 'addEmployee'}" (click)="selectView('addEmployee')">Add Employee</button>
+<h2>{{11292017 | date : 'mm-dd-yyyy'}}</h2>
+
+<!--<button [ngClass]="{'active': activeView === 'list'}" (click)="selectView('list')">View List</button>
+<button [ngClass]="{'active': activeView === 'addEmployee'}" (click)="selectView('addEmployee')">Add Employee</button>-->
 
   
-<div *ngIf="activeView === 'addEmployee' ">
+<div *ngIf="activeViewIndex === 1">
 <h2> Add employee</h2>
 {{newEmployee | json }}
   <div>
@@ -23,7 +26,7 @@ This is the main section
   </div>
   
 
-<div *ngIf="activeView === 'list'">
+<div *ngIf="activeViewIndex === 0">
 
 <table> 
   <thead>

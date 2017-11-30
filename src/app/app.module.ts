@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
-import { Assignment1127Component } from './component/assignment1127/assignment1127.component';
-
+import { EmpoyeeDetailsComponent } from './components/empoyee-details/empoyee-details.component';
+import { EmployeeService } from './employee.service';
 
 
 
@@ -14,15 +15,20 @@ import { Assignment1127Component } from './component/assignment1127/assignment11
   declarations: [
     AppComponent,
     HeaderComponent,
-    Assignment1127Component,
+    EmpoyeeDetailsComponent,
+    
+    
     
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [
+    EmployeeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

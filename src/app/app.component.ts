@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Employee} from './models/employee';
 import { viewClassName } from '@angular/compiler';
+import { EmployeeService } from './employee.service';
 
 
 @Component({
@@ -8,21 +9,35 @@ import { viewClassName } from '@angular/compiler';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Angular5 Bencys trials';
-  activeView='list';
+  activeViewIndex=0;
   selectedEmployee;
   newEmployee: Employee= new Employee('', null); 
 
   menuList: Array<string> = ['Home', 'About', 'Contact'];  
-  sectionList: Array<string> = ['Name', 'Address', 'phone number'];
+ // sectionList: Array<string> = ['Name', 'Address', 'phone number'];//
 
   employees: Array<Employee>= [  
-    new Employee('Benny', 50),
+ new Employee('Benny', 50),
     new Employee('Baiju', 48),
     new Employee('Thomas', 44),
     new Employee('Vincent', 40)
   ];
+
+  buttonList: Array<string>=['View Emp', 'Add Emp'];
+
+  constructor(private service : EmployeeService){
+
+
+  }
+
+  ngOnInit(){
+    this.service.getEmployees()
+    .subscribe((res: Array<Employee>) => {
+      this.employees = res
+    }); 
+  }
 
   onMenuClick(item){
     alert('menu is clicked is ' + item);
@@ -56,8 +71,8 @@ export class AppComponent {
  
   }
  
-  selectView(viewName){
-    this.activeView = viewName;
+  selectView(viewIndex){
+    this.activeViewIndex = viewIndex;
   }
 
  
